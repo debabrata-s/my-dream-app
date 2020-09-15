@@ -1,0 +1,36 @@
+<button mat-stroked-button color="warn" (click)="resetdb()">Reset db</button>
+<div class="form-container">
+  <form [formGroup]="signupFG" (submit)="onSubmit()">
+    <mat-form-field>
+      <mat-label>Username</mat-label>
+      <input matInput [formControl]="usernameFC">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input matInput [formControl]="emailFC">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Firstname</mat-label>
+      <input matInput [formControl]="firstnameFC">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Lastname</mat-label>
+      <input matInput [formControl]="lastnameFC">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Password</mat-label>
+      <input matInput [formControl]="passwordFC">
+    </mat-form-field>
+    <button type="submit" mat-raised-button color="primary">Sign up!</button>
+  </form>
+</div>
+<div class="list-container">
+  <ul>
+    <li *ngFor="let user of users">
+      {{user.firstname}}
+      <button mat-mini-fab color="primary" aria-label="delete item" (click)="deleteUser(user._id+'')">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </li>
+  </ul>
+</div>
